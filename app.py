@@ -6,6 +6,7 @@ from docx.enum.section import WD_ORIENT
 from docx.shared import Pt
 from docx2pdf import convert
 
+# creating a word doc and converting it to PDF
 def word_doc(fullName, nameOfSchool, dob, round, regNum):
     document = Document()
     print("Creating document...")
@@ -32,13 +33,13 @@ def word_doc(fullName, nameOfSchool, dob, round, regNum):
     pic = "studentPics\\"
     png = ".png"
     picture = pic+fullName+png
-    document.add_picture(picture, width=Inches(3.0))
+    document.add_picture(picture, width=Inches(2.0))
 
     p = document.add_paragraph().add_run(f'Total Score scored: {totalScore} / {outOf}')
-    p.font.size = Pt(22)
+    p.font.size = Pt(20)
 
     p = document.add_paragraph().add_run(f'Graded {remark}')
-    p.font.size = Pt(20)
+    p.font.size = Pt(18)
 
     if (totalScore > 40):
         p = document.add_paragraph().add_run(f'            CONGRATULATIONS')
@@ -48,9 +49,10 @@ def word_doc(fullName, nameOfSchool, dob, round, regNum):
         p.font.size = Pt(32)
 
     p = document.add_paragraph().add_run(aStudent['Final_result'].values[0])
-    p.font.size = Pt(20)
+    p.font.size = Pt(15)
 
-    path = 'D:\My Projects\Report Card Using Python\\'
+    #Please edit the path to your required path
+    path = 'D:\My Projects\Report Card Generator Using Python\\'
     wordDoc = 'Report.docx'
     nameOfDoc = path+fullName+wordDoc
     document.save(nameOfDoc)
@@ -63,7 +65,8 @@ def word_doc(fullName, nameOfSchool, dob, round, regNum):
 
 
 #Using Pandas library to Read Excel File--
-data = pd.read_excel("D:\My Projects\Report Card Using Python\DummyData.xlsx", "Sheet1",  skiprows=1)
+#Please edit the path to your required path
+data = pd.read_excel("D:\My Projects\Report Card Generator Using Python\DummyData.xlsx", "Sheet1",  skiprows=1)
 data.columns = [c.replace(' ', '_') for c in data.columns]
 
 print("Registered Students:")
@@ -86,7 +89,7 @@ aStudent = data.loc[data["Full_Name_"] == nameFromUser]
 
 #Getting student's score
 totalScore = aStudent['Your_score'].sum()
-print(f'Total Score scored by {nameFromUser} : {totalScore}')
+#print(f'Total Score scored by {nameFromUser} : {totalScore}')
 
 #Total score
 outOf = aStudent['Score_if_correct'].sum()
@@ -129,7 +132,6 @@ dob = ''
 ts = pd.to_datetime(str(aStudent['Date_of_Birth_'].values[0])) 
 dob = ts.strftime('%d-%m-%Y')
 #print(dob)
-
 
 regNum = ''
 regNum = aStudent['Registration_Number'].values[0]
