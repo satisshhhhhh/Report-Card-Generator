@@ -1,8 +1,8 @@
 ﻿# Report-Card-Generator
 
-### If you wish to download and use the system take care of the followings:
+### If you wish to download and use the system please take care of the followings:
 
-•	Make sure you have required libraries installed – (pandas, docx, docx2pdf)
+Make sure you have required libraries installed – (pandas, docx, docx2pdf)
 If you don’t have them installed, Run the following commands:
 -	pip install pandas
 -	pip install python-docx
