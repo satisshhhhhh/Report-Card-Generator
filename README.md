@@ -2,8 +2,8 @@
 
 ### If you wish to download and use the system please take care of the followings:
 
-Make sure you have required libraries installed – (pandas, docx, docx2pdf)
-If you don’t have them installed, Run the following commands:
+Make sure you have required libraries installed – (pandas, docx, docx2pdf)</br>
+If you don’t have them installed, Run the following commands:</br>
 -	pip install pandas
 -	pip install python-docx
 -	pip install docx2pdf
