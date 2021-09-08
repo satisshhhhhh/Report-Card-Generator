@@ -80,8 +80,8 @@ while nameFromUser not in allStudents:
     if nameFromUser == 'Q':
         quit()
     else:
-        print(f'Sorry Sir , there is no student with name {nameFromUser}')
-        print("PLease Try Again or Q to exit:")
+        print(f'Sorry, there is no student with name {nameFromUser}')
+        print("PLease Try Again or press Q to exit:")
         nameFromUser = input().upper()
 
 #Getting the score of the required student.
